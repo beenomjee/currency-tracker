@@ -1,0 +1,67 @@
+@import "../../styles";
+
+.container {
+  @include flex(row, center, space-between);
+  background-color: $dark;
+  padding: 2rem 3rem;
+
+  @include tablet {
+    padding: 1rem 2rem;
+  }
+
+  & > a {
+    @include font(2rem, 600);
+    color: $light;
+  }
+
+  & > form {
+    position: relative;
+
+    & > input {
+      all: unset;
+      width: 25rem;
+      max-width: 30vw;
+      display: block;
+      padding: 0.8rem 4.8rem 0.8rem 1.6rem;
+      border: 1px solid rgba($color: $secondary, $alpha: 0.3);
+      color: $light;
+      @include font();
+
+      &:hover,
+      &:focus {
+        border-color: $light;
+
+        &::placeholder {
+          color: $light;
+        }
+
+        & + button {
+          color: $light;
+        }
+      }
+    }
+
+    & > button {
+      all: unset;
+      cursor: pointer;
+      color: rgba($color: $secondary, $alpha: 0.3);
+      @include position(absolute, 50%, unset, 1.6rem);
+      transform: translate(0, -50%);
+      @include center();
+      @include font(2rem);
+
+      &.rotate {
+        animation: rotate 1s infinite linear;
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(0, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(0, -50%) rotate(360deg);
+  }
+}

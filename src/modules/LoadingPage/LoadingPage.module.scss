@@ -1,0 +1,8 @@
+@import "../../styles";
+
+.container {
+  height: calc(100vh - 8rem);
+  @include center();
+  width: 100%;
+  @include font(3rem);
+}
